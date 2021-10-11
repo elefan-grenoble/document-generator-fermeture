@@ -13,11 +13,6 @@ def copy_sheet_attributes(source_sheet, target_sheet):
     target_sheet.page_margins = copy(source_sheet.page_margins)
     target_sheet.freeze_panes = copy(source_sheet.freeze_panes)
 
-    # set row dimensions
-    # So you cannot copy the row_dimensions attribute. Does not work (because of meta data in the attribute I think). So we copy every row's row_dimensions. That seems to work.
-    for rn in range(len(source_sheet.row_dimensions)):
-        target_sheet.row_dimensions[rn] = copy(source_sheet.row_dimensions[rn])
-
     if source_sheet.sheet_format.defaultColWidth is None:
         print('Unable to copy default column wide')
     else:
@@ -36,6 +31,7 @@ def copy_sheet_attributes(source_sheet, target_sheet):
 
 
 def copy_cells(source_sheet, target_sheet):
+
     for (row, col), source_cell in source_sheet._cells.items():
         target_cell = target_sheet.cell(column=col, row=row)
 
