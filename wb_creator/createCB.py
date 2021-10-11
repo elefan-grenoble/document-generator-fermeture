@@ -8,8 +8,10 @@ from update_sheet.update_cb import update_bilan
 
 # creates new file for update_sheet usin a template
 def create_cb(year, month):
+    filename = f'{output_folder}{year}.{month}-Suivi des achats en carte bancaire.xlsx'
+
     doc_type = 'CB'
-    print(f'Start creating new file for {doc_type} for {year}-{month}')
+    print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')
     # define all sheet additional to the 'day'-sheets
     bilan = 'BILAN'
     sheets_to_copy = [bilan]
@@ -43,6 +45,5 @@ def create_cb(year, month):
     # remove default sheet 'Sheet' from workbook
     wb_new.remove(wb_new['Sheet'])
     # save new file
-    filename = f'{output_folder}{year}.{month}-Suivi des achats en carte bancaire.xlsx'
     wb_new.save(filename)
     print(f'Created new file {doc_type}[{filename}]')

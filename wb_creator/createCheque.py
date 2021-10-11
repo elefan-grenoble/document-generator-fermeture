@@ -6,9 +6,11 @@ from app_config import template_folder, output_folder
 
 # creates new file for update_sheet usin a template
 def create_cheque(year, month):
-    doc_type = 'Chèque'
     file_template_name = 'Suivi des chèques'
-    print(f'Start creating new file for {doc_type} for {year}-{month}')
+    filename = f'{output_folder}{year}.{month}-{file_template_name}.xlsx'
+
+    doc_type = 'Chèque'
+    print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')
     # define all sheet additional to the 'day'-sheets
     bilan = 'BILAN'
     sheets_to_copy = [ bilan]
@@ -37,6 +39,5 @@ def create_cheque(year, month):
     # remove default sheet 'Sheet' from workbook
     wb_new.remove(wb_new['Sheet'])
     # save new file
-    filename = f'{output_folder}{year}.{month}-{file_template_name}.xlsx'
     wb_new.save(filename)
     print(f'Created new file {doc_type}[{filename}]')

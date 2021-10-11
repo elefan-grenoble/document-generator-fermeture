@@ -6,8 +6,10 @@ from app_config import template_folder, output_folder
 
 # creates new file for update_sheet usin a template
 def create_cda(year, month):
+    filename = f'{output_folder}{year}.{month}-Caisse des adhésions.xlsx'
+
     doc_type = 'CaisseAdhesions'
-    print(f'Start creating new file for {doc_type} for {year}-{month}')
+    print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')
     # define all sheet additional to the 'day'-sheets
     fin_de_mois = 'FIN DE MOIS'
     bilan = 'BILAN'
@@ -44,6 +46,5 @@ def create_cda(year, month):
     # remove default sheet 'Sheet' from workbook
     wb_new.remove(wb_new['Sheet'])
     # save new file
-    filename = f'{output_folder}{year}.{month}-Caisse des adhésions.xlsx'
     wb_new.save(filename)
     print(f'Created new file {doc_type}[{filename}]')

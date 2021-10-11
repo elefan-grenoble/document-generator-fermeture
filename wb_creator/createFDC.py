@@ -6,8 +6,10 @@ from app_config import template_folder, output_folder
 
 # creates new file for update_sheet usin a template
 def create_fdc(year, month):
+    filename = f'{output_folder}{year}.{month}-Fonds de caisse classique.xlsx'
+
     doc_type = 'FDC'
-    print(f'Start creating new file for {doc_type} for {year}-{month}')
+    print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')
     # define all sheet additional to the 'day'-sheets
     fin_de_mois = 'FIN DE MOIS'
     bilan = 'BILAN'
@@ -44,6 +46,5 @@ def create_fdc(year, month):
     # remove default sheet 'Sheet' from workbook
     wb_new.remove(wb_new['Sheet'])
     # save new file
-    filename = f'{output_folder}{year}.{month}-Fonds de caisse classique.xlsx'
     wb_new.save(filename)
     print(f'Created new file {doc_type}[{filename}]')
