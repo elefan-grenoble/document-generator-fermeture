@@ -3,11 +3,13 @@ from update_sheet.helper.sheetname_helper import get_dates_for_month
 from update_sheet.helper.copy_helper import copy_sheet
 from update_sheet.update_cheque import update_bilan
 from app_config import template_folder
+import datetime
 
 # creates new file for update_sheet usin a template
 def create_cheque(year, month, output_folder):
+    year_month = datetime.date(year, month, 1).strftime("%Y.%m")
     file_template_name = 'Suivi des chèques'
-    filename = f'{output_folder}{year}.{month}-{file_template_name}.xlsx'
+    filename = f'{output_folder}{year_month}-{file_template_name}.xlsx'
 
     doc_type = 'Chèque'
     print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')
