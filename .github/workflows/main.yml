@@ -19,6 +19,7 @@ jobs:
           MONTH: 12
           YEAR: 2021
         run: |
+          sudo apt-get install language-pack-fr
           export LC_ALL="fr_FR.UTF-8"
           export LC_CTYPE="fr_FR.UTF-8"
           export LANG="fr_FR.UTF-8"
