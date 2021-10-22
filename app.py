@@ -1,3 +1,4 @@
+import locale
 import os
 
 from wb_creator.createFDC import create_fdc
@@ -8,6 +9,7 @@ from wb_creator.createCheque import create_cheque
 from os import mkdir, path
 import datetime
 
+locale.setlocale(locale.LC_TIME,'')
 
 if 'YEAR' not in  os.environ or 'MONTH' not in os.environ:
     raise Exception('YEAR and MONTH environment variables must be set')
