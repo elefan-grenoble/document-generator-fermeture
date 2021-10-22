@@ -20,4 +20,4 @@ jobs:
           YEAR: 2021
         run: |
           pipenv install --dev
-          pipenv run app.py
+          pipenv run python app.py
