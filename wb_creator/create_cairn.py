@@ -2,10 +2,10 @@ from openpyxl import load_workbook, Workbook
 from update_sheet.helper.copy_helper import copy_sheet
 from update_sheet.update_cairn import update_reserve, update_bilan, update_fin_de_mois
 from update_sheet.helper.sheetname_helper import get_dates_for_month
-from app_config import template_folder, output_folder
+from app_config import template_folder
 
 # creates new file for update_sheet usin a template
-def create_cairn(year, month):
+def create_cairn(year, month, output_folder):
     filename = f'{output_folder}{year}.{month}-Suivi des cairns.xlsx'
 
     doc_type = 'Cairn'
