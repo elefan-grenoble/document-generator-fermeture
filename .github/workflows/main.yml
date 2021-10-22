@@ -19,8 +19,8 @@ jobs:
           MONTH: 12
           YEAR: 2021
         run: |
-	  export LC_ALL="fr_FR.utf8"
-	  export LC_CTYPE="fr_FR.utf8"
+	  export LC_ALL="fr_FR.UTF-8"
+	  export LC_CTYPE="fr_FR.UTF-8"
 	  sudo dpkg-reconfigure locales
           pipenv install --dev
           pipenv run python app.py
