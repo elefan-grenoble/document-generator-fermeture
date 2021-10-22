@@ -35,4 +35,5 @@ jobs:
         with:
           name: docs-fermeture-caisse-${{ github.event.inputs.year }}.${{ github.event.inputs.month }}
           path: output
+          retention-days: 5
           
