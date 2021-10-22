@@ -6,7 +6,6 @@ from wb_creator.create_cairn import create_cairn
 from wb_creator.createCB import create_cb
 from wb_creator.createCheque import create_cheque
 from os import mkdir, path
-import locale
 import datetime
 
 
@@ -20,8 +19,6 @@ try:
     month = int(env_month)
 except ValueError:
     print(f'YEAR or MONTH environment variable can not be cast to int [{env_year}, {env_month}]')
-
-locale.setlocale(category=locale.LC_ALL, locale='fr_FR.utf8')
 
 month_name = datetime.date(year,month,1).strftime("%B").title()
 print(f'Creating files for: {month_name} {year}')
