@@ -1,0 +1,32 @@
+name: Manually triggered workflow
+on:
+  workflow_dispatch:
+    inputs:
+      year:
+        description: 'Year for document generation'
+        required: true
+      month:
+        description: 'Month for document generation'
+        required: true
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install pipenv
+        uses: dschep/install-pipenv-action@v1
+      - name: Run tests
+        env:
+          MONTH: ${{ github.event.inputs.month }}
+          YEAR: ${{ github.event.inputs.year }}
+        run: |
+          sudo dpkg-reconfigure locales
+          pipenv install --dev
+          pipenv run python app.py
