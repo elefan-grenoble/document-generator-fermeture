@@ -18,7 +18,7 @@ months = [
     'Avril',
     'Mai',
     'Juin',
-    'Juilliet',
+    'Juillet',
     'Août',
     'Septembre',
     'Octobre',
