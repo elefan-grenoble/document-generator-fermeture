@@ -1,4 +1,3 @@
-import locale
 import os
 
 from wb_creator.createFDC import create_fdc
@@ -7,29 +6,32 @@ from wb_creator.create_cairn import create_cairn
 from wb_creator.createCB import create_cb
 from wb_creator.createCheque import create_cheque
 from os import mkdir, path
+from update_sheet.helper.sheetname_helper import months
 import datetime
 
-locale.setlocale(locale.LC_TIME,'')
-
-if 'YEAR' not in  os.environ or 'MONTH' not in os.environ:
+if 'YEAR' not in os.environ or 'MONTH' not in os.environ:
     raise Exception('YEAR and MONTH environment variables must be set')
 
 env_year = os.environ['YEAR']
 env_month = os.environ['MONTH']
+
+year = 0
+month = 0
 try:
     year = int(env_year)
     month = int(env_month)
 except ValueError:
     print(f'YEAR or MONTH environment variable can not be cast to int [{env_year}, {env_month}]')
+    exit(1)
 
-month_name = datetime.date(year,month,1).strftime("%B").title()
+month_name = months[month-1]
 print(f'Creating files for: {month_name} {year}')
 
 output_folder = 'output/'
 if not path.exists(output_folder):
     print(f'creating output folder[{output_folder}]')
     mkdir(output_folder)
-year_month = datetime.date(year,month,1).strftime("%Y.%m")
+year_month = datetime.date(year, month, 1).strftime("%Y.%m")
 output_folder = f'{output_folder}{year_month} - {month_name} {year}/'
 if not path.exists(output_folder):
     print(f'creating output folder for month[{output_folder}]')

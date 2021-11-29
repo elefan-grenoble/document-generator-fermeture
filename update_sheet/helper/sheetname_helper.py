@@ -1,8 +1,34 @@
-import datetime, calendar
+import datetime
+import calendar
+
+weekday = [
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi',
+    'Dimanche'
+]
+
+months = [
+    'Janvier',
+    'Février',
+    'Mars',
+    'Avril',
+    'Mai',
+    'Juin',
+    'Juilliet',
+    'Août',
+    'Septembre',
+    'Octobre',
+    'Novembre',
+    'Décembre'
+]
 
 
 def datestring_fr(date):
-    datestring = calendar.day_name[date.weekday()][0:3].upper()
+    datestring = weekday[date.weekday()][0:3].upper()
     datestring += ' ' + str(date.strftime("%d.%m"))
     return datestring
 
