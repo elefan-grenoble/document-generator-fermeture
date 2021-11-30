@@ -8,7 +8,7 @@ import datetime
 # creates new file for update_sheet usin a template
 def create_cairn(year, month, output_folder):
     year_month = datetime.date(year, month, 1).strftime("%Y.%m")
-    filename = f'{output_folder}{year_month}-Suivi des cairns.xlsx'
+    filename = f'{output_folder}{year_month} - Suivi des cairns.xlsx'
 
     doc_type = 'Cairn'
     print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')

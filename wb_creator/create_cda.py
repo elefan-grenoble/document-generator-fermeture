@@ -8,7 +8,7 @@ import datetime
 # creates new file for update_sheet usin a template
 def create_cda(year, month, output_folder):
     year_month = datetime.date(year,month,1).strftime("%Y.%m")
-    filename = f'{output_folder}{year_month}-Caisse des adhésions.xlsx'
+    filename = f'{output_folder}{year_month} - Caisse des adhésions.xlsx'
 
     doc_type = 'CaisseAdhesions'
     print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')

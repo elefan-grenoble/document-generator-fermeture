@@ -8,7 +8,7 @@ import datetime
 # creates new file for update_sheet usin a template
 def create_fdc(year, month, output_folder):
     year_month = datetime.date(year, month, 1).strftime("%Y.%m")
-    filename = f'{output_folder}{year_month}-Fonds de caisse classique.xlsx'
+    filename = f'{output_folder}{year_month} - Fonds de caisse classique.xlsx'
 
     doc_type = 'FDC'
     print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')

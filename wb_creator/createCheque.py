@@ -9,7 +9,7 @@ import datetime
 def create_cheque(year, month, output_folder):
     year_month = datetime.date(year, month, 1).strftime("%Y.%m")
     file_template_name = 'Suivi des chèques'
-    filename = f'{output_folder}{year_month}-{file_template_name}.xlsx'
+    filename = f'{output_folder}{year_month} - {file_template_name}.xlsx'
 
     doc_type = 'Chèque'
     print(f'Start creating new file for {doc_type} for {year}-{month} [{filename}]')

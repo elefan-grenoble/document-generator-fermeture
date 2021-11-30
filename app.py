@@ -27,7 +27,7 @@ except ValueError:
 month_name = months[month-1]
 print(f'Creating files for: {month_name} {year}')
 
-output_folder = 'output/'
+output_folder = f'output/{year} - Fichiers de fermeture de caisse/'
 if not path.exists(output_folder):
     print(f'creating output folder[{output_folder}]')
     mkdir(output_folder)
