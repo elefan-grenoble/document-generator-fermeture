@@ -27,10 +27,15 @@ except ValueError:
 month_name = months[month-1]
 print(f'Creating files for: {month_name} {year}')
 
-output_folder = f'output/{year} - Fichiers de fermeture de caisse/'
+output_folder = f'output'
 if not path.exists(output_folder):
     print(f'creating output folder[{output_folder}]')
     mkdir(output_folder)
+output_folder = f'{output_folder}/{year} - Fichiers de fermeture de caisse/'
+if not path.exists(output_folder):
+    print(f'creating output folder[{output_folder}]')
+    mkdir(output_folder)
+
 year_month = datetime.date(year, month, 1).strftime("%Y.%m")
 output_folder = f'{output_folder}{year_month} - {month_name} {year}/'
 if not path.exists(output_folder):
