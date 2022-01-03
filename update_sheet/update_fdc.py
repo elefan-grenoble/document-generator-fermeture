@@ -45,7 +45,9 @@ def update_sheet_fin_de_mois(sheet, year, month):
                              f'>0,' \
                              f'{get_p(title_sheet_before, index)}-{get_u(title_sheet_before, index)}+{get_aa(title_sheet_before, index)},' \
                              f'{get_p(title_sheet_before, index)}-{get_h(title_sheet_before, index)}-{get_u(title_sheet_before, index)}+{get_aa(title_sheet_before, index)})'
-        sheet[f'G{index}'] = f'=IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
+        sheet[f'G{index}'] = f'=IF({get_h(title_sheet_before, index)}="",' \
+                             f'{get_q(title_sheet_before, index)},' \
+                             f'IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
                              f'>={get_h(title_sheet_before, index)},' \
                              f'{get_d(title_sheet_before, index)}+{get_h(title_sheet_before, index)},' \
                              f'{get_d(title_sheet_before, index)}+{get_o(title_sheet_before, index)})'
@@ -57,7 +59,9 @@ def update_sheet_fin_de_mois(sheet, year, month):
                              f'0,' \
                              f'{get_o(title_sheet_before, index)}-{get_h(title_sheet_before, index)}-{get_u(title_sheet_before, index)}+{get_z(title_sheet_before, index)}))'
         sheet[f'F{index}'] = f'={get_p(title_sheet_before, index)}+{get_aa(title_sheet_before, index)}'
-        sheet[f'G{index}'] = f'=IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
+        sheet[f'G{index}'] = f'=IF({get_h(title_sheet_before, index)}="",' \
+                             f'{get_q(title_sheet_before, index)},' \
+                             f'IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
                              f'>={get_h(title_sheet_before, index)},' \
                              f'{get_d(title_sheet_before, index)}+{get_h(title_sheet_before, index)},' \
                              f'{get_d(title_sheet_before, index)}+{get_o(title_sheet_before, index)})'
