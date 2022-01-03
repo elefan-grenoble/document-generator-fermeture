@@ -70,10 +70,12 @@ def update_ouverture(sheet, title_sheet_before):
                              f'>0,' \
                              f'{get_p(title_sheet_before, index)}-{get_u(title_sheet_before, index)}+{get_aa(title_sheet_before, index)},' \
                              f'{get_p(title_sheet_before, index)}-{get_h(title_sheet_before, index)}-{get_u(title_sheet_before, index)}+{get_aa(title_sheet_before, index)})'
-        sheet[f'Q{index}'] = f'=IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
+        sheet[f'Q{index}'] = f'=IF({get_h(title_sheet_before, index)}="",' \
+                             f'{get_q(title_sheet_before, index)},' \
+                             f'IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
                              f'>={get_h(title_sheet_before, index)},' \
                              f'{get_d(title_sheet_before, index)}+{get_h(title_sheet_before, index)},' \
-                             f'{get_d(title_sheet_before, index)}+{get_o(title_sheet_before, index)})'
+                             f'{get_d(title_sheet_before, index)}+{get_o(title_sheet_before, index)}))'
 
     for index in range(8, 17):
         sheet[f'O{index}'] = f'=IF({get_h(title_sheet_before, index)}="",' \
@@ -82,7 +84,9 @@ def update_ouverture(sheet, title_sheet_before):
                              f'0,' \
                              f'{get_o(title_sheet_before, index)}-{get_h(title_sheet_before, index)}-{get_u(title_sheet_before, index)}+{get_z(title_sheet_before, index)}))'
         sheet[f'P{index}'] = f'={get_p(title_sheet_before, index)}+{get_aa(title_sheet_before, index)}'
-        sheet[f'Q{index}'] = f'=IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
+        sheet[f'Q{index}'] = f'=IF({get_h(title_sheet_before, index)}="",' \
+                             f'{get_q(title_sheet_before, index)},' \
+                             f'IF(({get_o(title_sheet_before, index)}+{get_z(title_sheet_before, index)})' \
                              f'>={get_h(title_sheet_before, index)},' \
                              f'{get_d(title_sheet_before, index)}+{get_h(title_sheet_before, index)},' \
-                             f'{get_d(title_sheet_before, index)}+{get_o(title_sheet_before, index)})'
+                             f'{get_d(title_sheet_before, index)}+{get_o(title_sheet_before, index)}))'
