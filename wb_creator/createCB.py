@@ -18,7 +18,7 @@ def create_cb(year, month, output_folder):
     sheets_to_copy = [bilan]
 
     # load template
-    wb = load_workbook(filename=f'{template_folder}Suivi des achats en carte bancaire 26.xlsx')
+    wb = load_workbook(filename=f'{template_folder}Suivi des achats en carte bancaire.xlsx')
     # create new workbook
     wb_new = Workbook()
 
@@ -31,11 +31,7 @@ def create_cb(year, month, output_folder):
         wb_new.create_sheet(sheet_name)
         current_sheet = wb_new[sheet_name]
         # update the ouverture table in every sheet but the first one
-        if index != 0:
-            # ouverture table references to data in sheet of day before
-            copy_sheet(wb['B'], current_sheet)
-        else:
-            copy_sheet(wb['A'], current_sheet)
+        copy_sheet(wb['A'], current_sheet)
 
     for sheet_name in sheets_to_copy:
         wb_new.create_sheet(sheet_name)
