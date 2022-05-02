@@ -1,28 +1,28 @@
+import datetime
 import os
+from os import mkdir, path
 
-from wb_creator.createFDC import create_fdc
-from wb_creator.create_cda import create_cda
-from wb_creator.create_cairn import create_cairn
+from update_sheet.helper.sheetname_helper import months
 from wb_creator.createCB import create_cb
 from wb_creator.createCheque import create_cheque
-from os import mkdir, path
-from update_sheet.helper.sheetname_helper import months
-import datetime
+from wb_creator.createFDC import create_fdc
+from wb_creator.create_cairn import create_cairn
+from wb_creator.create_cda import create_cda
+
+year = datetime.datetime.now().year
+month = datetime.datetime.now().month
 
 if 'YEAR' not in os.environ or 'MONTH' not in os.environ:
-    raise Exception('YEAR and MONTH environment variables must be set')
-
-env_year = os.environ['YEAR']
-env_month = os.environ['MONTH']
-
-year = 0
-month = 0
-try:
-    year = int(env_year)
-    month = int(env_month)
-except ValueError:
-    print(f'YEAR or MONTH environment variable can not be cast to int [{env_year}, {env_month}]')
-    exit(1)
+    print(f'Variable YEAR or MONTH not set. Generating documents for next month [{months[month-1]} {year}]')
+else:
+    env_year = os.environ['YEAR']
+    env_month = os.environ['MONTH']
+    try:
+        year = int(env_year)
+        month = int(env_month)
+    except ValueError:
+        print(f'YEAR or MONTH environment variable can not be cast to int [{env_year}, {env_month}]')
+        exit(1)
 
 month_name = months[month-1]
 print(f'Creating files for: {month_name} {year}')

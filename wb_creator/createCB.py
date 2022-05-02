@@ -1,10 +1,12 @@
+import datetime
+
 from openpyxl import load_workbook, Workbook
 
 from app_config import template_folder
 from update_sheet.helper.copy_helper import copy_sheet
 from update_sheet.helper.sheetname_helper import get_dates_for_month
 from update_sheet.update_cb import update_bilan
-import datetime
+
 
 # creates new file for update_sheet usin a template
 def create_cb(year, month, output_folder):

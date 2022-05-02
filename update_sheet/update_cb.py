@@ -1,6 +1,7 @@
-from update_sheet.helper.sheetname_helper import get_dates_for_month
-from update_sheet.helper.field_helper import get_d, get_i, get_h, get_f
 from update_sheet.helper.copy_helper import set_cell_style
+from update_sheet.helper.field_helper import get_d, get_i, get_h, get_f
+from update_sheet.helper.sheetname_helper import get_dates_for_month
+
 
 def update_bilan(sheet_bilan, year, month):
     dates = get_dates_for_month(year, month)
