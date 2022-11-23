@@ -10,7 +10,7 @@ from wb_creator.create_cairn import create_cairn
 from wb_creator.create_cda import create_cda
 
 year = datetime.datetime.now().year
-month = datetime.datetime.now().month
+month = datetime.datetime.now().month + 1
 
 if 'YEAR' not in os.environ or 'MONTH' not in os.environ:
     print(f'Variable YEAR or MONTH not set. Generating documents for next month [{months[month-1]} {year}]')
