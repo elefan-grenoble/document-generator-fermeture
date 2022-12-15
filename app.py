@@ -1,4 +1,5 @@
 import datetime
+from dateutil.relativedelta import relativedelta
 import os
 from os import mkdir, path
 
@@ -9,8 +10,10 @@ from wb_creator.createFDC import create_fdc
 from wb_creator.create_cairn import create_cairn
 from wb_creator.create_cda import create_cda
 
-year = datetime.datetime.now().year
-month = datetime.datetime.now().month + 1
+
+next_month = datetime.datetime.now() + relativedelta(months=1)
+year = next_month.year
+month = next_month.month
 
 if 'YEAR' not in os.environ or 'MONTH' not in os.environ:
     print(f'Variable YEAR or MONTH not set. Generating documents for next month [{months[month-1]} {year}]')

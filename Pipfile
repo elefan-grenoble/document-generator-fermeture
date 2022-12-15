@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 xlsxwriter = "*"
 openpyxl = "*"
+python-dateutil = "*"
 
 [dev-packages]
 pyinstaller="v5.6.2"
